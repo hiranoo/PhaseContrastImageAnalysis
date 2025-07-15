@@ -1,21 +1,22 @@
 # PhaseContrastImageAnalysis
 
-非染色液滴の輪郭を抽出してトラックするプログラムです。
+## できること
+
+### 非染色液滴の円近似
+- 画像の局所平均の分布がフラットではない場合、閾値による界面の検出が困難である。本プログラムは局所勾配から界面を検出するので局所平均の分布にむらがあっても界面を検出可能である。
+- 検出した界面を円で近似する。
+
+### 部分的な界面の曲率計算
+液滴の変形を分析可能
+
+## 依存関係
+- 使用ライブラリ： `numpy cv2 skimage matplotlib numba jupyterlab`
+- 動作確認環境：Ubuntu 22.04.2 LTS on WSL2, Python 3.10.12
 
 ## 使い方
+- main.ipynbを雛形として用意している。
+- `test_run 関数`で処理過程の画像を確認しながらパラメータを調整してください。
+- 画像はmultittiff形式にのみ対応。
 
-## 処理内容
-1. Sensor dust mask
-2. Roughly compute mass center of edge candidates
-3. Bright to dark mask
-- brightness gradient vector using Sobel filter
-- the angle of brightness gradient vector and relative spatial vector from mass center as cosin
-- Filter for large enough brightness gradient vector
-- Filter for large enough cosin
-4. Select edge points
-- gaussianblur
-- Laplacian
-- remove sensor dust and neighbors
-- remove small bg-vectors
-- remove small cosins
+
 
