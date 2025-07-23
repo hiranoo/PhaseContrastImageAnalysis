@@ -9,9 +9,13 @@ from modules.bright2dark import create_b2d_data, reduce_b2d_noise
 from modules.labels import get_large_label_indices, display_label_sizes
 
 class MyImages:
-    def __init__(self, path):
+    def __init__(self):
+        return
+    
+    def load_image(self, path):
         self.gray_images = skimage.io.imread(path, plugin="tifffile")
         self.dust_mask = np.zeros(self.gray_images[0].shape)
+
 
 def test_run(instance: MyImages, index: int, conf):
     images = []
@@ -44,7 +48,7 @@ def test_run(instance: MyImages, index: int, conf):
     canvas = np.copy(gray)
     for i in range(len(arr_circle)):
         cx, cy, cr = map(int, arr_circle[i])
-        cv2.circle(canvas, (cx, cy), cr, color=0, thickness=1+i)
+        cv2.circle(canvas, (cx, cy), cr, color=np.mean(canvas), thickness=1+i)
 
     print('mass center of b2d vectors', b2d_mass_center)
     images = [gray, blurred, b2d_vector_image, b2d_cos_image, b2d_cos_mask, noise_reduced_b2d_vector_image, labels, large_labels, good_labels, canvas]

@@ -62,6 +62,7 @@ def display_droplet_radii(list_arr_circle):
         plt.plot([arr_circle[1][2] for arr_circle in list_arr_circle], color='blue', label='2nd circle')
     if n > 2:
         plt.plot([arr_circle[2][2] for arr_circle in list_arr_circle], color='green', label='3rd circle')
+    plt.yticks([0, 2 * list_arr_circle[0][0][2]])
     plt.legend()
 
 """ 近似円の可視化: 元画像に円を加えた画像の列 """

@@ -1,0 +1,25 @@
+path: 
+  /mnt/c/Users/hiran/Documents/Research/Experiment_data/Droplet/20240207/20240207_5-branch_S3-3x5_height-10um_deg55_wu_exp100ms_ph2_take1_20240207_191741/20240207_5-branch_S3-3x5_height-10um_deg55_wu_exp100ms_ph2_take1_t000000.tif
+fps: 1
+scale: 0.108333 # um/pixel
+crop:
+  - 2120
+  - 2350
+  - 190
+  - 410
+crop_id: 1 # change the id if crop is changed
+negative_image: false
+gaussian_blur_ksize: 7
+dust_mask_dilate_ksize: 11
+sobel_ksize: 3
+b2d_cos_thresh: 0.7
+b2d_vector_blur_ksize: 11
+b2d_vector_mass_center_sigma: 2
+b2d_vector_noise_sigma: 2
+large_label_thresh_size: 1000
+large_label_thresh_sigma: 1
+cross_extra_width_inside: 5
+cross_extra_width_outside: 50
+cross_ratio_thresh: 0.1
+fitting_extra_width_outside: 5
+fitting_iteraion_number: 2

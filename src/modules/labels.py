@@ -22,7 +22,7 @@ def get_large_label_indices(nlabels, labels, thresh_size, thresh_sigma):
 
 def display_label_sizes(nlabels, labels, thresh_size, thresh_sigma):
     label_sizes = count_label_sizes(nlabels, labels)
-    plt.plot(label_sizes) # debug
+    plt.scatter(range(len(label_sizes)), label_sizes) # debug
     plt.plot([np.mean(label_sizes) + np.std(label_sizes)] * len(label_sizes), label=f'mean + {thresh_sigma} sigma')
     plt.plot(np.ones(len(label_sizes)) * thresh_size, label=f'{thresh_size}')
     plt.xlabel('label id')

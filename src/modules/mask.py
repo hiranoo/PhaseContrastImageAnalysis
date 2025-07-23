@@ -16,3 +16,10 @@ def get_mask(image, thresh):
     dst = np.zeros(image.shape)
     dst[image >= thresh] = 1
     return dst
+
+def create_dust_mask(image, circles):
+    dust_mask = np.zeros(image.shape)
+    for circle in circles:
+        x, y, r = circle
+        cv2.circle(dust_mask, (x, y), r, color=1, thickness=-1)
+    return dust_mask
